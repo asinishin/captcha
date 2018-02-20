@@ -1,0 +1,18 @@
+<h1>Here we go!!!</h1>
+
+<%= form_for @user do |f| %>
+    <%= f.text_field :username %>
+    <%= f.password_field :password %>
+
+    <div id="recaptcha"></div>
+    <%= f.submit %>
+<% end %>
+
+<%=javascript_tag do %>
+    var onRecaptchaElementLoad = function() {
+      grecaptcha.render('recaptcha', {
+        'sitekey' : '<%= j ENV["REACAPTCHA_SITE_KEY"]%>',
+        'theme': 'dark'
+      });
+    };
+<%end%>
