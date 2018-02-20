@@ -10,6 +10,6 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    redirect_to 'index'
+    redirect_to registrations_path
   end
 end
